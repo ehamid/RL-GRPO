@@ -38,10 +38,11 @@ def load_base_model_and_tokenizer(
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name,
-        torch_dtype=dtype,
-    ).to(device)
+    try:
+        model = AutoModelForCausalLM.from_pretrained(model_name, dtype=dtype)
+    except TypeError:
+        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype)
+    model = model.to(device)
     model.config.use_cache = False
     return model, tokenizer
 
