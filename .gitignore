@@ -1,0 +1,29 @@
+# Bytecode & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Training Outputs & Checkpoints
+outputs/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# OS-Specific
+.DS_Store
+Thumbs.db
+
+# Experiment Tracking & Logs
+wandb/
+runs/
+*.log
